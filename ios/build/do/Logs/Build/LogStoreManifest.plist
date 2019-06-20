@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>1919F358-9A61-4783-ABD4-FBEB57B890C5</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>1919F358-9A61-4783-ABD4-FBEB57B890C5.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>do project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>do</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project do with scheme do and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>582430758.73281205</real>
+			<key>timeStoppedRecording</key>
+			<real>582430767.38935101</real>
+			<key>title</key>
+			<string>Building project do with scheme do and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>1919F358-9A61-4783-ABD4-FBEB57B890C5</string>
+		</dict>
+		<key>2D02F892-9C27-40CE-8D88-D690F139A1CF</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>2D02F892-9C27-40CE-8D88-D690F139A1CF.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>do project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>do</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project do with scheme do and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>582608967.62562001</real>
+			<key>timeStoppedRecording</key>
+			<real>582608975.82440603</real>
+			<key>title</key>
+			<string>Building project do with scheme do and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>2D02F892-9C27-40CE-8D88-D690F139A1CF</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
