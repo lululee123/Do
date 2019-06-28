@@ -1,6 +1,6 @@
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
-import LogIn from './LogIn';
-import SignUp from './SignUp';
+import LogIn from './components/newView/LogIn';
+import SignUp from './components/newView/SignUp';
 
 const Auth = createBottomTabNavigator({
   LogIn: {
@@ -16,8 +16,10 @@ const Auth = createBottomTabNavigator({
     tabBarOptions: { 
       safeAreaInset: { bottom: 'never', top: 'never' } ,
       activeTintColor: '#f2f2f2',
-      activeBackgroundColor: '#5eb8d6', 
       inactiveTintColor: '#666',
+      style: {
+        backgroundColor: '#171F33' // TabBar background
+      },
       labelStyle: {
         fontSize: 16,
         padding: 12

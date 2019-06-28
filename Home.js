@@ -1,9 +1,42 @@
-import { createDrawerNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
-import CalendarAnalysis from './Calendar';
-import TaskAdvance from './TaskAdvance';
-import DashBoard from './DashBoard';
-import User from './User';
-import SecretTask from './SecretTask';
+import { createDrawerNavigator, createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import CalendarAnalysis from './components/newView/Calendar';
+import TaskAdvance from './components/newView/TaskAdvance';
+import User from './components/newView/User';
+import SecretTask from './components/newView/SecretTask';
+import AllTask from './components/newView/AllTask';
+import Done from './components/newView/Done';
+import UnDone from './components/newView/UnDone';
+
+const DashBoard = createBottomTabNavigator({
+    All: {
+      screen: AllTask
+    },
+    Done: {
+      screen: Done
+    },
+    UnDone: {
+      screen: UnDone
+    }
+  }, 
+  {
+    tabBarposition: 'bottom', 
+    swipeEnabled: true, 
+    tabBarOptions: { 
+      safeAreaInset: { bottom: 'never', top: 'never' } ,
+      activeTintColor: '#f2f2f2',
+      inactiveTintColor: '#666',
+      style: {
+          backgroundColor: '#171F33' // TabBar background
+      },
+      labelStyle: {
+        fontSize: 16,
+        padding: 12
+      }
+    }
+  }
+);
+
+
 
 const DashBoardNav = createStackNavigator(
   {
