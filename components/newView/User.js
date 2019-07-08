@@ -22,7 +22,7 @@ class User extends Component{
   render(){
     return (
       <View style={styles.container}>
-        <MyHeader menu={true} navigation={this.props.navigation} title="User" />
+        <MyHeader menu={true} search={false} navigation={this.props.navigation} title="User" />
         <View style={styles.logoutBtn}>
           <Button  
           title="LOGOUT"

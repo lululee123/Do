@@ -1,6 +1,7 @@
 import { createDrawerNavigator, createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import CalendarAnalysis from './components/newView/Calendar';
 import TaskAdvance from './components/newView/TaskAdvance';
+import Search from './components/newView/Search';
 import User from './components/newView/User';
 import SecretTask from './components/newView/SecretTask';
 import AllTask from './components/newView/AllTask';
@@ -36,12 +37,11 @@ const DashBoard = createBottomTabNavigator({
   }
 );
 
-
-
 const DashBoardNav = createStackNavigator(
   {
   Home: DashBoard,
   TaskAdvance: TaskAdvance,
+  Search: Search
   },
   {
     headerMode: 'none',

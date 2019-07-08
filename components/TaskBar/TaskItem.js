@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import * as firebase from "firebase";
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Button, Keyboard, TextInput} from 'react-native';
+import { CalendarList } from 'react-native-calendars';
 import DeleteTaskBtn from '../buttons/DeleteTaskBtn';
 import DoneTaskBtn from'../buttons/DoneTaskBtn';
 import SecretTaskBtn from '../buttons/SecretTaskBtn';
@@ -11,24 +12,50 @@ class TaskItem extends Component{
     super(props);
     this.state = {
       edit: false,
-      msg: ""
+      editDate: false,
+      msg: this.props.data.task,
+      date: this.props.data.date,
+      item: this.props.item
     }
   }
 
-  taskEditSave = (e, task) => {
+  taskEditSave = () => {
     Keyboard.dismiss();
 
     this.setState({
-      msg: "",
+      editDate: false,
       edit: false
     })
 
     firebase
     .database()
     .ref(`users/${this.props.firebaseUID}/task`)
-    .child(e)
+    .child(this.state.item)
     .update({
-      "task": task
+      "task": this.state.msg,
+      "date": this.state.date
+    });
+  }
+
+  ClickDate = (data) => {
+    this.setState({
+      date: data
+    })
+  }
+
+  changeDate = () => {
+    this.setState({
+      editDate: false,
+      edit: false
+    })
+
+    firebase
+    .database()
+    .ref(`users/${this.props.firebaseUID}/task`)
+    .child(this.state.item)
+    .update({
+      "task": this.state.msg,
+      "date": this.state.date
     });
   }
 
@@ -44,20 +71,61 @@ class TaskItem extends Component{
           <Button 
           style={styles.taskBtn} 
           title="&#10003;" 
-          onPress={() => this.taskEditSave(this.props.item, this.state.msg) }></Button>
+          onPress={() => this.taskEditSave()}></Button>
+          <Button 
+          style={styles.taskBtn} 
+          title="&#128197;" 
+          onPress={() => this.setState({editDate: true, edit: false})}></Button>
+        </View>
+      )
+    } else if (this.state.editDate){
+      return (
+        <View>
+          <CalendarList
+          horizontal={true}
+          pagingEnabled={true}
+          style={styles.calendar}
+          scrollEnabled={true}
+          markingType={'period'}
+          onDayPress={day=>this.ClickDate(day.dateString)}
+          theme={{
+            calendarBackground: '#3A3D5E',
+            todayTextColor: 'orange',
+            dayTextColor: '#d9e1e8',
+            textDisabledColor: 'gray',
+            monthTextColor: 'white',
+            textDayFontWeight: '300',
+            textMonthFontWeight: 'bold',
+            textDayHeaderFontWeight: '300',
+            textDayFontSize: 16,
+            textMonthFontSize: 16,
+            textDayHeaderFontSize: 16
+          }}
+          />
+          <View style={{paddingBottom: 10, paddingTop: 10}}>
+            <Text style={styles.text}>{`Choose: ${this.state.date}`}</Text>
+          </View>
+          <View>
+            <Button 
+              style={styles.inputBtn} 
+              title="SAVE" 
+              color='#FBB321'
+              onPress={() => this.changeDate()}
+            ></Button>
+          </View>
         </View>
       )
     } else {
       return (
         <View style={styles.task} >
           <Text style={styles.taskText}>{ this.props.data.task }</Text>
-          <DeleteTaskBtn item={this.props.item} />
-          <DoneTaskBtn item={this.props.item} />
+          <DeleteTaskBtn item={this.state.item} />
+          <DoneTaskBtn item={this.state.item} />
           <Button 
           style={styles.taskBtn} 
           title="&#9998;" 
-          onPress={() => this.setState({ msg: this.props.data.task, edit: true}) }></Button>
-          <SecretTaskBtn item={this.props.item} />
+          onPress={() => this.setState({edit: true}) }></Button>
+          <SecretTaskBtn item={this.state.item} />
         </View>   
       )
     }
@@ -106,5 +174,16 @@ const styles = StyleSheet.create({
   },
   taskBtn: {
     flex: 1
+  },
+  text:{
+    color: '#fff',
+    textAlign: 'center',
+    alignItems: 'center'
+  },
+  inputBtn:{
+    height: 40,
+    textAlign: 'center',
+    alignItems: 'center',
+    flex: 1,
   }
 });

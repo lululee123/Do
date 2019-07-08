@@ -27,3 +27,21 @@ export const LoginCheck = () => (dispatch) => {
     }
   });
 }
+
+const FetchTaskList = (res) => {
+  return {
+    type: 'FETCHTASKLIST',
+    payload: res
+  }
+} 
+
+export const TaskList = (uid) => (dispatch) => {
+  return firebase.database().ref(`users/${uid}`)
+  .on("value", snap => {
+    if (snap.val() !==  null){
+      dispatch(FetchTaskList(snap.val()));
+    } else {
+      dispatch(FetchTaskList(''));
+    }
+  })
+}

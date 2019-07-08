@@ -46,7 +46,7 @@ class TaskAdvance extends Component{
   render(){
     return (
       <View style={styles.container}>
-        <MyHeader menu={false} navigation={this.props.navigation} title="Advance Setting" />
+        <MyHeader menu={false} search={false} navigation={this.props.navigation} title="Advance Setting" />
         <View >
           <View style={styles.addTask}>
             <View style={styles.inputBox}>
@@ -90,7 +90,7 @@ class TaskAdvance extends Component{
         <View>
           <Button 
             style={styles.inputBtn} 
-            title="ADD" 
+            title="ADD TASK" 
             color='#FBB321'
             onPress={() => {this.addTaskClick(); Keyboard.dismiss();}}
           ></Button>

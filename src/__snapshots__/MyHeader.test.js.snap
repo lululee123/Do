@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button Rendering should match to snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Rendering should match to snapshot 1`] = `ShallowWrapper {}`;

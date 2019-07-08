@@ -35,16 +35,17 @@ class SecretTask extends Component{
           if (snap.val().profile.secretTaskPassword){
             let setting = {startingDay: true, color: '#5eb8d6', endingDay: true};
             let dataList = {};
-            Object.keys(snap.val().task).map(item => {
-              if (snap.val().task[item].secret){
-                dataList[snap.val().task[item].date] = setting
+            let taskList = snap.val().task ? snap.val().task : {}; 
+            Object.keys(taskList).map(item => {
+              if (taskList[item].secret){
+                dataList[taskList[item].date] = setting
               }
             })
 
             if (this.state.passwordCheck){
               this.setState({
                 dateList: dataList,
-                taskList: snap.val().task,
+                taskList: taskList,
                 lock: false,
                 password: snap.val().profile.secretTaskPassword,
                 first: false
@@ -52,7 +53,7 @@ class SecretTask extends Component{
             } else {
               this.setState({
                 dateList: dataList,
-                taskList: snap.val().task,
+                taskList: taskList,
                 lock: true,
                 password: snap.val().profile.secretTaskPassword,
                 first: false
@@ -129,7 +130,7 @@ class SecretTask extends Component{
       return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} >
         <KeyboardAvoidingView behavior="padding" style={styles.container}>
-          <MyHeader menu={true} navigation={this.props.navigation} title="Secret Task" />
+          <MyHeader menu={true} search={false} navigation={this.props.navigation} title="Secret Task" />
           <View style={styles.details}>
             <View style={{alignItems: 'center', marginBottom: 20}}>
               <Text style={{color: 'white', fontSize: 15}}>Set Password</Text>
@@ -203,33 +204,34 @@ class SecretTask extends Component{
       )
     } else {
       return (
-        <View style={styles.container}>
-          <MyHeader menu={true} navigation={this.props.navigation} title="Secret Task" />
-          <CalendarList
-            horizontal={true}
-            pagingEnabled={true}
-            style={styles.calendar}
-            scrollEnabled={true}
-            markedDates={this.state.dateList}
-            markingType={'period'}
-            onDayPress={day=>this.ClickDate(day.dateString)}
-            theme={{
-              calendarBackground: '#3A3D5E',
-              todayTextColor: 'orange',
-              dayTextColor: '#d9e1e8',
-              textDisabledColor: 'gray',
-              // arrowColor: 'orange',
-              monthTextColor: 'white',
-              textDayFontWeight: '300',
-              textMonthFontWeight: 'bold',
-              textDayHeaderFontWeight: '300',
-              textDayFontSize: 16,
-              textMonthFontSize: 16,
-              textDayHeaderFontSize: 16
-            }}
-          />
-          <View style={styles.detailsTask}>
-              <ScrollView style={{flex: 1, backgroundColor: '#3A3D5E'}}>
+        <KeyboardAvoidingView style={styles.box} behavior="padding" enabled>
+          <ScrollView keyboardShouldPersistTaps='always' style={{flex: 1, backgroundColor: '#3A3D5E'}}>
+            <View style={styles.container}>
+              <MyHeader menu={true} navigation={this.props.navigation} title="Secret Task" />
+              <CalendarList
+                horizontal={true}
+                pagingEnabled={true}
+                style={styles.calendar}
+                scrollEnabled={true}
+                markedDates={this.state.dateList}
+                markingType={'period'}
+                onDayPress={day=>this.ClickDate(day.dateString)}
+                theme={{
+                  calendarBackground: '#3A3D5E',
+                  todayTextColor: 'orange',
+                  dayTextColor: '#d9e1e8',
+                  textDisabledColor: 'gray',
+                  // arrowColor: 'orange',
+                  monthTextColor: 'white',
+                  textDayFontWeight: '300',
+                  textMonthFontWeight: 'bold',
+                  textDayHeaderFontWeight: '300',
+                  textDayFontSize: 16,
+                  textMonthFontSize: 16,
+                  textDayHeaderFontSize: 16
+                }}
+              />
+              <View style={styles.detailsTask}>
                 {
                   Object.keys(this.state.taskList).map(item => {
                     if (this.state.taskList[item].date == this.state.Date && this.state.taskList[item].secret){
@@ -245,12 +247,12 @@ class SecretTask extends Component{
                     }
                   })
                 }
-              </ScrollView>
+              </View>
             </View>
-        </View>
+          </ScrollView>
+        </KeyboardAvoidingView>        
       )
     }
-    
   }
 };
 
@@ -265,6 +267,9 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(SecretTask);
 
 const styles = StyleSheet.create({
+  box: {
+    flex: 1
+  },
   container: {
     flex: 1,
     backgroundColor: '#3A3D5E',

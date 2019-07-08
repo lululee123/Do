@@ -74,7 +74,6 @@ class LogIn extends Component {
           </View>
           {
             this.state.forget ?
-
               <View>
                 <TextInput
                   style={styles.input}

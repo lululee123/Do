@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableWithoutFeedback, Button } from 'react-native';
 
 const MyHeader = props => {
   return (
@@ -12,6 +12,17 @@ const MyHeader = props => {
         <View></View>
       }
       <Text style={styles.titleBarText}>{props.title}</Text>
+      {
+        props.search ? 
+        <View style={styles.searchBtn}>
+          <Button
+            color='white'
+            title="&#128269;"
+            onPress={() => props.navigation.navigate('Search')}
+          />
+        </View> : 
+        <View></View>
+      }
     </View>
   );
 };
@@ -41,6 +52,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 45,
     left: 20, 
+    zIndex: 1
+  },
+  searchBtn: {
+    position: 'absolute',
+    width: 30, 
+    height: 30, 
+    right: 20,
+    top: 35,
     zIndex: 1
   }
 });

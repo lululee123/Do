@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { LoginCheck } from './actions/index';  //action
+import { LoginCheck, TaskList } from './actions/index';  //action
 import Auth from './Auth';
 import Home from './Home';
 
@@ -12,7 +12,12 @@ class CheckInit extends Component {
   }
 
   render(){
-    if (this.props.CheckLogin === 'Login'){
+    if (this.props.CheckLogin === 'Login and Fetch'){
+      this.props.TaskList(this.props.firebaseUID);
+      return (
+        <Home />
+      )
+    } else if (this.props.CheckLogin === 'Login'){
       return (
         <Home />
       )
@@ -32,11 +37,12 @@ class CheckInit extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    firebaseUID: state.CheckLoginReducer.uid,
     CheckLogin: state.CheckLoginReducer.status
   }
 }
 
-export default connect(mapStateToProps, {LoginCheck: LoginCheck})(CheckInit);
+export default connect(mapStateToProps, {LoginCheck: LoginCheck, TaskList: TaskList})(CheckInit);
 
 const styles = StyleSheet.create({
   container: {

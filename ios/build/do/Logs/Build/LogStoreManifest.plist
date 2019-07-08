@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>6050C52F-F918-4B9D-911E-087337313EDC</key>
+		<key>51796008-080F-4875-91F2-475F3629703E</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>6050C52F-F918-4B9D-911E-087337313EDC.xcactivitylog</string>
+			<string>51796008-080F-4875-91F2-475F3629703E.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,15 +30,15 @@
 			<key>signature</key>
 			<string>Building project do with scheme do and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>582797021.44953299</real>
+			<real>584253716.92047596</real>
 			<key>timeStoppedRecording</key>
-			<real>582797029.31829</real>
+			<real>584253721.22776306</real>
 			<key>title</key>
 			<string>Building project do with scheme do and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>6050C52F-F918-4B9D-911E-087337313EDC</string>
+			<string>51796008-080F-4875-91F2-475F3629703E</string>
 		</dict>
-		<key>C6E717DF-7B7F-4643-A663-40F907B371ED</key>
+		<key>73E316F9-B8B4-48A8-BB21-A420078C45B1</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -47,7 +47,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>C6E717DF-7B7F-4643-A663-40F907B371ED.xcactivitylog</string>
+			<string>73E316F9-B8B4-48A8-BB21-A420078C45B1.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -62,13 +62,13 @@
 			<key>signature</key>
 			<string>Building project do with scheme do and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>583212816.48088896</real>
+			<real>584248136.18210101</real>
 			<key>timeStoppedRecording</key>
-			<real>583212818.83051395</real>
+			<real>584248138.86957896</real>
 			<key>title</key>
 			<string>Building project do with scheme do and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>C6E717DF-7B7F-4643-A663-40F907B371ED</string>
+			<string>73E316F9-B8B4-48A8-BB21-A420078C45B1</string>
 		</dict>
 	</dict>
 </dict>

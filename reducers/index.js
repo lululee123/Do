@@ -1,18 +1,19 @@
 import { combineReducers } from 'redux';
 
-const CheckLoginReducer = (state, action = 'FETCHING') => {
+const CheckLoginReducer = (UserInit = {status: 'Loading', uid: '', list: ''}, action = 'FETCHING') => {
   switch( action.type ){
     case 'FETCHING':
-      return {status: 'Loading'};
+      return UserInit;
     case 'FETCH':
-      return {status: 'Login', uid: action.payload};
+      return {...UserInit, status: 'Login and Fetch', uid: action.payload};
     case 'FETCH_ERROR':
-      return {status: 'Unlogin'};
+      return {...UserInit, status: 'Unlogin'};
+    case 'FETCHTASKLIST':
+      return {...UserInit, status: 'Login', list: action.payload};
     default: 
-      return {status: 'Loading'};  
+      return UserInit;  
   }
 }
-
 export default combineReducers({
   CheckLoginReducer: CheckLoginReducer,
 })
