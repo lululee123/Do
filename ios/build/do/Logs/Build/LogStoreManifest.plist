@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>51796008-080F-4875-91F2-475F3629703E</key>
+		<key>99253434-7180-45D5-92F0-265FEB64F95C</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>51796008-080F-4875-91F2-475F3629703E.xcactivitylog</string>
+			<string>99253434-7180-45D5-92F0-265FEB64F95C.xcactivitylog</string>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
@@ -30,45 +30,13 @@
 			<key>signature</key>
 			<string>Building project do with scheme do and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>584253716.92047596</real>
+			<real>584636503.18655598</real>
 			<key>timeStoppedRecording</key>
-			<real>584253721.22776306</real>
+			<real>584636504.77610195</real>
 			<key>title</key>
 			<string>Building project do with scheme do and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>51796008-080F-4875-91F2-475F3629703E</string>
-		</dict>
-		<key>73E316F9-B8B4-48A8-BB21-A420078C45B1</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>73E316F9-B8B4-48A8-BB21-A420078C45B1.xcactivitylog</string>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>do project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>do</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project do with scheme do and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>584248136.18210101</real>
-			<key>timeStoppedRecording</key>
-			<real>584248138.86957896</real>
-			<key>title</key>
-			<string>Building project do with scheme do and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>73E316F9-B8B4-48A8-BB21-A420078C45B1</string>
+			<string>99253434-7180-45D5-92F0-265FEB64F95C</string>
 		</dict>
 	</dict>
 </dict>

@@ -36,6 +36,9 @@ class SignUp extends Component {
             <Image style={styles.logo} source={require('../../image/task.png')} />
           </View>
           <View style={{alignItems: 'center',justifyContent: 'center', marginBottom: 20}}>
+            <Text style={{color: 'white', fontSize: 15}}>Welcome</Text>
+          </View>
+          <View style={{alignItems: 'center',justifyContent: 'center', marginBottom: 20}}>
             <Text style={{color: 'white', fontSize: 15}}>{ this.state.msg }</Text>
           </View>
           <TextInput

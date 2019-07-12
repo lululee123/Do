@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableWithoutFeedback, Button } from 
 
 const MyHeader = props => {
   return (
-    <View style={styles.titleBar}>
+    <View className="MyHeader" style={styles.titleBar}>
       {
         props.menu ? 
         <TouchableWithoutFeedback  onPress={() => props.navigation.toggleDrawer()} >
@@ -11,7 +11,7 @@ const MyHeader = props => {
         </TouchableWithoutFeedback> :
         <View></View>
       }
-      <Text style={styles.titleBarText}>{props.title}</Text>
+      <Text style={styles.titleBarText} children={props.title}>{props.title}</Text>
       {
         props.search ? 
         <View style={styles.searchBtn}>

@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button Rendering should match to snapshot 1`] = `ShallowWrapper {}`;
+exports[`Rendering menu and search both display 1`] = `ShallowWrapper {}`;
 
-exports[`Rendering should match to snapshot 1`] = `ShallowWrapper {}`;
+exports[`Rendering menu display 1`] = `ShallowWrapper {}`;
+
+exports[`Rendering menu hidden 1`] = `ShallowWrapper {}`;
+
+exports[`Rendering render without any props 1`] = `ShallowWrapper {}`;
+
+exports[`Rendering search display 1`] = `ShallowWrapper {}`;
+
+exports[`Rendering search hidden 1`] = `ShallowWrapper {}`;
+
+exports[`Rendering title display correct 1`] = `ShallowWrapper {}`;
+
+exports[`Rendering title display correct 2`] = `ShallowWrapper {}`;
+
+exports[`Rendering title display correct 3`] = `ShallowWrapper {}`;

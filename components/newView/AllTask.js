@@ -24,11 +24,10 @@ class AllTask extends Component{
               onPress={() => this.props.navigation.navigate('TaskAdvance')}
             />
           </View>
-          
           {
             Object.keys(this.props.taskList).length === 0 ?
               <View style={styles.noTask}>
-                <Text style={{color: 'white'}}>{this.props.status === "Login and Fetch" ? 'Loading' : 'No Task!'}</Text>
+                <Text style={{color: 'white'}}>{this.props.status === "Login" ? 'No Task!' : 'Loading'}</Text>
               </View>
             :
               <View style={{flex: 1, paddingBottom: 10, backgroundColor: '#3A3D5E'}}>
@@ -66,7 +65,7 @@ const mapStateToProps = (state) => {
   } 
   return {
     taskList: {},
-    status: ''
+    status: state.CheckLoginReducer.status
   }
 }
 

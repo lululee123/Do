@@ -28,7 +28,7 @@ class CheckInit extends Component {
     } else {
       return (
         <View style={styles.container}>
-          <Text style={{color: 'white', fontSize: 15}}>Loading</Text>
+          <Text style={{color: 'white', fontSize: 15}}>Welcome Back</Text>
         </View>     
       )
     }

@@ -15,7 +15,8 @@ class TaskItem extends Component{
       editDate: false,
       msg: this.props.data.task,
       date: this.props.data.date,
-      item: this.props.item
+      item: this.props.item,
+      dateDot: { [this.props.data.date]: {startingDay: true, color: '#5eb8d6', endingDay: true} }
     }
   }
 
@@ -38,8 +39,12 @@ class TaskItem extends Component{
   }
 
   ClickDate = (data) => {
+    let dateDot = {};
+    let setting = {startingDay: true, color: '#5eb8d6', endingDay: true};
+    dateDot[data] = setting;
     this.setState({
-      date: data
+      date: data,
+      dateDot: dateDot
     })
   }
 
@@ -81,30 +86,43 @@ class TaskItem extends Component{
     } else if (this.state.editDate){
       return (
         <View>
-          <CalendarList
-          horizontal={true}
-          pagingEnabled={true}
-          style={styles.calendar}
-          scrollEnabled={true}
-          markingType={'period'}
-          onDayPress={day=>this.ClickDate(day.dateString)}
-          theme={{
-            calendarBackground: '#3A3D5E',
-            todayTextColor: 'orange',
-            dayTextColor: '#d9e1e8',
-            textDisabledColor: 'gray',
-            monthTextColor: 'white',
-            textDayFontWeight: '300',
-            textMonthFontWeight: 'bold',
-            textDayHeaderFontWeight: '300',
-            textDayFontSize: 16,
-            textMonthFontSize: 16,
-            textDayHeaderFontSize: 16
-          }}
-          />
-          <View style={{paddingBottom: 10, paddingTop: 10}}>
-            <Text style={styles.text}>{`Choose: ${this.state.date}`}</Text>
+          <View style={styles.task} >
+            <TextInput 
+            style={styles.taskText}
+            value={this.state.msg}
+            onChangeText={(val) => this.setState({ msg: val })}
+            ></TextInput>
+            <Button 
+            style={styles.taskBtn} 
+            title="&#10003;" 
+            onPress={() => this.taskEditSave()}></Button>
+            <Button 
+            style={styles.taskBtn} 
+            title="&#128197;" 
+            onPress={() => this.setState({editDate: true, edit: false})}></Button>
           </View>
+          <CalendarList
+            horizontal={true}
+            pagingEnabled={true}
+            style={styles.calendar}
+            scrollEnabled={true}
+            markedDates={this.state.dateDot}
+            markingType={'period'}
+            onDayPress={day=>this.ClickDate(day.dateString)}
+            theme={{
+              calendarBackground: '#3A3D5E',
+              todayTextColor: 'orange',
+              dayTextColor: '#d9e1e8',
+              textDisabledColor: 'gray',
+              monthTextColor: 'white',
+              textDayFontWeight: '300',
+              textMonthFontWeight: 'bold',
+              textDayHeaderFontWeight: '300',
+              textDayFontSize: 16,
+              textMonthFontSize: 16,
+              textDayHeaderFontSize: 16
+            }}
+          />
           <View>
             <Button 
               style={styles.inputBtn} 

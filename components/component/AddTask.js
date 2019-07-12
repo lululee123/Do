@@ -75,6 +75,8 @@ const mapStateToProps = (state) => {
     return {
       firebaseUID: state.CheckLoginReducer.uid
     }
+  } else {
+    return {}
   }
 }
 

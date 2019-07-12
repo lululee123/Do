@@ -31,34 +31,32 @@ class SecretTask extends Component{
     .ref(`users/${this.props.firebaseUID}`)
     .on("value", snap => {
       if (snap.val() !==  null){
-        if (snap.val().profile){
-          if (snap.val().profile.secretTaskPassword){
-            let setting = {startingDay: true, color: '#5eb8d6', endingDay: true};
-            let dataList = {};
-            let taskList = snap.val().task ? snap.val().task : {}; 
-            Object.keys(taskList).map(item => {
-              if (taskList[item].secret){
-                dataList[taskList[item].date] = setting
-              }
-            })
-
-            if (this.state.passwordCheck){
-              this.setState({
-                dateList: dataList,
-                taskList: taskList,
-                lock: false,
-                password: snap.val().profile.secretTaskPassword,
-                first: false
-              })
-            } else {
-              this.setState({
-                dateList: dataList,
-                taskList: taskList,
-                lock: true,
-                password: snap.val().profile.secretTaskPassword,
-                first: false
-              })
+        if (snap.val().profile && snap.val().profile.secretTaskPassword){
+          let setting = {startingDay: true, color: '#5eb8d6', endingDay: true};
+          let dataList = {};
+          let taskList = snap.val().task ? snap.val().task : {}; 
+          Object.keys(taskList).map(item => {
+            if (taskList[item].secret){
+              dataList[taskList[item].date] = setting
             }
+          })
+
+          if (this.state.passwordCheck){
+            this.setState({
+              dateList: dataList,
+              taskList: taskList,
+              lock: false,
+              password: snap.val().profile.secretTaskPassword,
+              first: false
+            })
+          } else {
+            this.setState({
+              dateList: dataList,
+              taskList: taskList,
+              lock: true,
+              password: snap.val().profile.secretTaskPassword,
+              first: false
+            })
           }
         }
       }
@@ -91,7 +89,7 @@ class SecretTask extends Component{
       firebase
       .database()
       .ref(`users/${this.props.firebaseUID}/profile`)
-      .set({
+      .update({
         "secretTaskPassword": this.state.passwordSet
       })
     } else {
@@ -261,6 +259,8 @@ const mapStateToProps = (state) => {
     return {
       firebaseUID: state.CheckLoginReducer.uid
     }
+  } else{
+    return {}
   }
 }
 

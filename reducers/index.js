@@ -14,6 +14,7 @@ const CheckLoginReducer = (UserInit = {status: 'Loading', uid: '', list: ''}, ac
       return UserInit;  
   }
 }
+
 export default combineReducers({
   CheckLoginReducer: CheckLoginReducer,
 })

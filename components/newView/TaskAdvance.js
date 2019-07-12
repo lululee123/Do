@@ -12,7 +12,8 @@ class TaskAdvance extends Component{
     this.state = {
       date: moment(new Date()).format("YYYY-MM-DD"),
       task: "",
-      send: false
+      send: false,
+      dateDot: {[moment(new Date()).format("YYYY-MM-DD")]: {startingDay: true, color: "#5eb8d6", endingDay: true}}
     }
   }
 
@@ -36,10 +37,14 @@ class TaskAdvance extends Component{
     }
   }
 
-  ClickDate = (date) => {
+  ClickDate = (data) => {
+    let dateDot = {};
+    let setting = {startingDay: true, color: '#5eb8d6', endingDay: true};
+    dateDot[data] = setting;
     this.setState({
-      date: date,
-      send: false
+      date: data,
+      send: false,
+      dateDot: dateDot
     })
   }
 
@@ -61,32 +66,27 @@ class TaskAdvance extends Component{
           </View>
         </View>
         <CalendarList
-            horizontal={true}
-            pagingEnabled={true}
-            style={styles.calendar}
-            scrollEnabled={true}
-            onDayPress={day=>this.ClickDate(day.dateString)}
-            theme={{
-              calendarBackground: '#3A3D5E',
-              todayTextColor: 'orange',
-              dayTextColor: '#d9e1e8',
-              textDisabledColor: 'gray',
-              monthTextColor: 'white',
-              textDayFontWeight: '300',
-              textMonthFontWeight: 'bold',
-              textDayHeaderFontWeight: '300',
-              textDayFontSize: 16,
-              textMonthFontSize: 16,
-              textDayHeaderFontSize: 16
-            }}
+          horizontal={true}
+          pagingEnabled={true}
+          style={styles.calendar}
+          scrollEnabled={true}
+          markedDates={this.state.dateDot}
+          markingType={'period'}
+          onDayPress={day=>this.ClickDate(day.dateString)}
+          theme={{
+            calendarBackground: '#3A3D5E',
+            todayTextColor: 'orange',
+            dayTextColor: '#d9e1e8',
+            textDisabledColor: 'gray',
+            monthTextColor: 'white',
+            textDayFontWeight: '300',
+            textMonthFontWeight: 'bold',
+            textDayHeaderFontWeight: '300',
+            textDayFontSize: 16,
+            textMonthFontSize: 16,
+            textDayHeaderFontSize: 16
+          }}
         />
-        {
-          this.state.date !== moment(new Date()).format("YYYY-MM-DD") ? 
-          <View style={{paddingBottom: 10, paddingTop: 10}}>
-            <Text style={styles.text}>{`Choose: ${this.state.date}`}</Text>
-          </View>
-          : <View></View>
-        }
         <View>
           <Button 
             style={styles.inputBtn} 
@@ -112,6 +112,8 @@ const mapStateToProps = (state) => {
     return {
       firebaseUID: state.CheckLoginReducer.uid
     }
+  } else {
+    return {}
   }
 }
 
