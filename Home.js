@@ -7,7 +7,6 @@ import SecretTask from './components/newView/SecretTask';
 import AllTask from './components/newView/AllTask';
 import Done from './components/newView/Done';
 import UnDone from './components/newView/UnDone';
-import EditUserData from './components/newView/EditUserData';
 
 const DashBoard = createBottomTabNavigator({
     All: AllTask,
